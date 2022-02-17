@@ -1,8 +1,8 @@
 fname = input("Enter file name: ")
 if len(fname) < 1:
-    fname = "mbox-short.txt"
+    fname = "mbox-short.txt.txt"
 
-fh = open('mbox-short.txt')
+fh = open(fname)
 counts = dict()
 for line in fh:
     line = line.rstrip()
@@ -22,11 +22,14 @@ for line in fh:
 
 tmp = list()
 for k,v in counts.items() :
-    print(k,v)
-    newt = (v,k)
+#     print(k,v)
+    newt = (k, v)
     tmp.append(newt)
 
-tmp = sorted(tmp, reverse=True)
+tmp = sorted(tmp)
+for tuple in tmp:
+    print(tuple[0],tuple[1])
 
-for v,k in tmp[:12] :
-    print(k,v)
+
+# for v,k in tmp[:12] :
+#     print(k,v)
